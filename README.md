@@ -1,14 +1,12 @@
 # Pulse
 
-![image](https://user-images.githubusercontent.com/64370426/235376551-454466c9-5bf3-41f2-8308-71b003abc564.png)
-
 ## Sobre o Projeto
 
 O projeto desenvolvido para a disciplina de Projeto Temático I, do curso de Análise e Desenvolvimento de Sistemas.
 
 
 ## Funcionalidades desenvolvidas
-Cadastro de questionários, questões e alternativas. Disponibilização dos questionários prontos para serem respondidos pelos usuários cadastrados.
+Reprodutor musical desktop.
 
 ## Principais tecnologias utilizadas
 
