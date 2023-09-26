@@ -110,7 +110,7 @@ public class PrincipalGui implements ActionListener{
 		
 		this.usuario = usuario;
 		
-	//Componentes
+	//Componentes teste git
 		labelBemVindo.setFont(new Font(null,Font.PLAIN,15));
 		labelBemVindo.setText("Bem-Vindos " + usuario.getNome() + "!");
 		
