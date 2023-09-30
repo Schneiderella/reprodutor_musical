@@ -8,7 +8,7 @@ public class Conexao {
 
 	 private static final String URL = "jdbc:mysql://localhost:3306/pulseDB";
 	 private static final String USER = "root";
-	 private static final String PASSWORD = "senhamysql123";
+	 private static final String PASSWORD = "suasenha";
 	
 	 public static Connection conn;
 	 
