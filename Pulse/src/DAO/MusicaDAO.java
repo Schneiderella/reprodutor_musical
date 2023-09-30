@@ -13,7 +13,7 @@ public class MusicaDAO {
 
 	public static List<Musica> retornaMusicas(int codigoUsuario) {
 	    List<Musica> listaMusicas = new ArrayList<>();
-	    String sql = "SELECT TITULO, ENDERECO, DURACAO FROM MUSICA WHERE CODIGOUSUARIO = ?";
+	    String sql = "SELECT TITULO, ENDERECO, ARTISTA, ALBUM, DURACAO FROM MUSICA WHERE CODIGOUSUARIO = ?";
 
 	    PreparedStatement ps = null;
 	    ResultSet rs = null;
@@ -26,12 +26,16 @@ public class MusicaDAO {
 	        while (rs.next()) {
 	            String titulo = rs.getString("TITULO");
 	            String endereco = rs.getString("ENDERECO");
-	            float duracao = rs.getFloat("DURACAO");
+	            String duracao = rs.getString("DURACAO");
+	            String artista = rs.getString("ARTISTA");
+	            String album = rs.getString("ALBUM");
 
 	            Musica musica = new Musica();
 	            musica.setTitulo(titulo);
 	            musica.setEndereco(endereco);
 	            musica.setDuracao(duracao);
+	            musica.setArtista(artista);
+	            musica.setAlbum(album);
 
 	            listaMusicas.add(musica);
 	        }
@@ -55,7 +59,7 @@ public class MusicaDAO {
 	
 	public void cadastraMusica (Musica musica) {
 		
-		String sql = "INSERT INTO MUSICA (TITULO, ENDERECO, DURACAO, CODIGOUSUARIO) VALUES (?, ?, ?, ?)"; 
+		String sql = "INSERT INTO MUSICA (TITULO, ENDERECO, ARTISTA, ALBUM, DURACAO, CODIGOUSUARIO) VALUES (?, ?, ?, ?, ?, ?)"; 
 		
 		PreparedStatement ps = null;
 		
@@ -63,8 +67,10 @@ public class MusicaDAO {
 			ps = Conexao.getConnection().prepareStatement(sql);
 			ps.setString(1, musica.getTitulo());
 			ps.setString(2, musica.getEndereco());
-			ps.setFloat(3, musica.getDuracao());
-			ps.setInt(4, musica.getCodigoUsuario());
+			ps.setString(3, musica.getArtista());
+			ps.setString(4, musica.getAlbum());
+			ps.setString(5, musica.getDuracao());
+			ps.setInt(6, musica.getCodigoUsuario());
 			
 			ps.execute();
 			
@@ -138,5 +144,38 @@ public class MusicaDAO {
         }
         return false;  
     }
+
+
+	public boolean editamusica(String tituloMusica, int codUsuario, String tituloAlterado, String artistaAlterado, String albumAlterado) {
+		String sql = "UPDATE MUSICA SET TITULO = ?, ARTISTA = ?, ALBUM = ? WHERE TITULO = ? AND CODIGOUSUARIO = ?";
+	    PreparedStatement ps = null;
+
+	    try {
+	        ps = Conexao.getConnection().prepareStatement(sql);
+	        ps.setString(1, tituloAlterado);
+	        ps.setString(2, artistaAlterado);
+	        ps.setString(3, albumAlterado);
+	        ps.setString(4, tituloMusica);
+	        ps.setInt(5, codUsuario);
+
+	        int rowsAffected = ps.executeUpdate();
+
+	        if (rowsAffected > 0) {
+	            return true; 
+	        }
+	    } catch (SQLException e) {
+	        System.out.println("Falha ao atualizar a música!");
+	        e.printStackTrace();
+	    } finally {
+	        try {
+	            if (ps != null) {
+	                ps.close();
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	    }
+	    return false;
+	}
 
 }

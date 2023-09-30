@@ -36,7 +36,7 @@ public class LoginGui implements ActionListener{
 	JLabel labelAviso = new JLabel();
 	JLabel labelMensagem = new JLabel("Bem-vindo ao Pulse!");
 	JLabel labelCadastro = new JLabel("Não possui uma conta?");
-    ImageIcon imagem = new ImageIcon("/Pulse/src/auxiliar/icone_login.png");
+    ImageIcon imagem = new ImageIcon("auxiliar/icone_login.png");
     JLabel labelImagem = new JLabel(imagem);
 	
 	@SuppressWarnings("serial")
@@ -58,16 +58,17 @@ public class LoginGui implements ActionListener{
             }
         });
         
+        
         //Componentes
     	labelAviso.setFont(new Font(null, Font.ITALIC, 12));
         
         labelImagem.setBounds(180,94,64,64);
         
-        labelLogin.setBounds(114,157,75,25);
+        labelLogin.setBounds(112,157,75,25);
         labelLogin.setForeground(Color.WHITE);
         labelLogin.setFont(new Font(null,Font.BOLD,12));
         
-        labelSenha.setBounds(114,207,75,25);
+        labelSenha.setBounds(112,207,75,25);
         labelSenha.setForeground(Color.WHITE);
         labelSenha.setFont(new Font(null,Font.BOLD,12));
         
@@ -84,12 +85,14 @@ public class LoginGui implements ActionListener{
         campoLogin.setBackground(new Color(0, 0, 0, 0)); 
         campoLogin.setOpaque(false);
         campoLogin.setForeground(Color.WHITE);
+        campoLogin.setFont(new Font("Arial", Font.PLAIN, 12));  
 
         campoSenha.setBounds(114, 227, 200, 25);
         campoSenha.setBorder(new LineBorder(Color.WHITE));
         campoSenha.setBackground(new Color(0, 0, 0, 0));
         campoSenha.setOpaque(false);
         campoSenha.setForeground(Color.WHITE);
+        campoSenha.setFont(new Font("Arial", Font.PLAIN, 12));  
         
 		botaoLogin.setBounds(164,277,100,25);
 		botaoLogin.setForeground(Color.WHITE);
@@ -97,6 +100,7 @@ public class LoginGui implements ActionListener{
 		botaoLogin.setFocusable(false);
 		botaoLogin.addActionListener(this);
 		botaoLogin.setContentAreaFilled(false);
+		botaoLogin.setFont(new Font("Arial", Font.BOLD, 12));  
 		
 		botaoCadastro.setBounds(219, 327, 125, 25);
 		botaoCadastro.setForeground(Color.WHITE);
@@ -104,6 +108,7 @@ public class LoginGui implements ActionListener{
 		botaoCadastro.setBorderPainted(false);
 		botaoCadastro.setContentAreaFilled(false);
 		botaoCadastro.addActionListener(this);
+		botaoCadastro.setFont(new Font("Arial", Font.BOLD, 12));  
 		
 		//Métodos que reajem com o passar do mouse
 		botaoLogin.addMouseListener(new MouseAdapter() {

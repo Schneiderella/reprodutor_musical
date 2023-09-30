@@ -4,12 +4,11 @@ public class Musica {
 	
 	private int codigo;
 	private String titulo;
-	private Artista artista;
-	private Album album;
+	private String artista;
+	private String album;
 	private String endereco;
-	private float duracao;
+	private String duracao;
 	private int codigoUsuario;
-	
 	public int getCodigo() {
 		return codigo;
 	}
@@ -22,16 +21,16 @@ public class Musica {
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-	public Artista getArtista() {
+	public String getArtista() {
 		return artista;
 	}
-	public void setArtista(Artista artista) {
+	public void setArtista(String artista) {
 		this.artista = artista;
 	}
-	public Album getAlbum() {
+	public String getAlbum() {
 		return album;
 	}
-	public void setAlbum(Album album) {
+	public void setAlbum(String album) {
 		this.album = album;
 	}
 	public String getEndereco() {
@@ -40,11 +39,11 @@ public class Musica {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
-	public float getDuracao() {
+	public String getDuracao() {
 		return duracao;
 	}
-	public void setDuracao(float duracao) {
-		this.duracao = duracao;
+	public void setDuracao(String duracao2) {
+		this.duracao = duracao2;
 	}
 	public int getCodigoUsuario() {
 		return codigoUsuario;
@@ -52,5 +51,5 @@ public class Musica {
 	public void setCodigoUsuario(int codigoUsuario) {
 		this.codigoUsuario = codigoUsuario;
 	}
-
 }
+	
