@@ -13,7 +13,7 @@ public class MusicaDAO {
 
 	public static List<Musica> retornaMusicas(int codigoUsuario) {
 	    List<Musica> listaMusicas = new ArrayList<>();
-	    String sql = "SELECT TITULO, ENDERECO, ARTISTA, ALBUM, DURACAO FROM MUSICA WHERE CODIGOUSUARIO = ?";
+	    String sql = "SELECT IDMUSICA, TITULO, ENDERECO, ARTISTA, ALBUM, DURACAO FROM MUSICA WHERE CODIGOUSUARIO = ?";
 
 	    PreparedStatement ps = null;
 	    ResultSet rs = null;
@@ -24,6 +24,7 @@ public class MusicaDAO {
 	        rs = ps.executeQuery();
 
 	        while (rs.next()) {
+	        	int codMusica = rs.getInt("IDMUSICA");
 	            String titulo = rs.getString("TITULO");
 	            String endereco = rs.getString("ENDERECO");
 	            String duracao = rs.getString("DURACAO");
@@ -31,6 +32,7 @@ public class MusicaDAO {
 	            String album = rs.getString("ALBUM");
 
 	            Musica musica = new Musica();
+	            musica.setCodigo(codMusica);
 	            musica.setTitulo(titulo);
 	            musica.setEndereco(endereco);
 	            musica.setDuracao(duracao);
@@ -116,13 +118,13 @@ public class MusicaDAO {
 	    return false;
 	}
 
-	public boolean removeMusica(String titulo, int codigoUsuario) {
-        String sql = "DELETE FROM MUSICA WHERE TITULO = ? AND CODIGOUSUARIO = ?";
+	public boolean removeMusica(int musicaSelecionada, int codigoUsuario) {
+        String sql = "DELETE FROM MUSICA WHERE IDMUSICA = ? AND CODIGOUSUARIO = ?";
         PreparedStatement ps = null;
 
         try {
         	ps = Conexao.getConnection().prepareStatement(sql);
-            ps.setString(1, titulo);
+            ps.setInt(1, musicaSelecionada);
             ps.setInt(2, codigoUsuario);
 
             int rowsAffected = ps.executeUpdate();
@@ -146,8 +148,8 @@ public class MusicaDAO {
     }
 
 
-	public boolean editamusica(String tituloMusica, int codUsuario, String tituloAlterado, String artistaAlterado, String albumAlterado) {
-		String sql = "UPDATE MUSICA SET TITULO = ?, ARTISTA = ?, ALBUM = ? WHERE TITULO = ? AND CODIGOUSUARIO = ?";
+	public boolean editamusica(int codMusica, int codUsuario, String tituloAlterado, String artistaAlterado, String albumAlterado) {
+		String sql = "UPDATE MUSICA SET TITULO = ?, ARTISTA = ?, ALBUM = ? WHERE IDMUSICA = ? AND CODIGOUSUARIO = ?";
 	    PreparedStatement ps = null;
 
 	    try {
@@ -155,7 +157,7 @@ public class MusicaDAO {
 	        ps.setString(1, tituloAlterado);
 	        ps.setString(2, artistaAlterado);
 	        ps.setString(3, albumAlterado);
-	        ps.setString(4, tituloMusica);
+	        ps.setInt(4, codMusica);
 	        ps.setInt(5, codUsuario);
 
 	        int rowsAffected = ps.executeUpdate();

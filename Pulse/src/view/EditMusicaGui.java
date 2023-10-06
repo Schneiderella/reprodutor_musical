@@ -4,11 +4,14 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Frame;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowStateListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -27,7 +30,7 @@ public class EditMusicaGui implements ActionListener{
 	JTextField campoArtista = new JTextField();
 	JTextField campoAlbum = new JTextField();
 
-	JLabel labelEdicao = new JLabel("Editar informações da música");
+	JLabel labelEdicao = new JLabel("Editar Informações da Música");
 	JLabel labelTitulo = new JLabel("Título");
 	JLabel labelArtista = new JLabel("Artista");
 	JLabel labelAlbum = new JLabel("Álbum");
@@ -38,14 +41,14 @@ public class EditMusicaGui implements ActionListener{
 	EmptyBorder emptyBorder = new EmptyBorder(0, 10, 0, 0);
 	
 	int codUsuario;
-	String tituloMusica;
+	int codMusica;
 	
 	private PrincipalGui principal;
 	
-	public EditMusicaGui(String titulo, int codigoUsuario, Usuario usuario, PrincipalGui principalGui){
+	public EditMusicaGui(int musicaSelecionada, int codigoUsuario, Usuario usuario, PrincipalGui principalGui){
 		
 		this.codUsuario = codigoUsuario;
-		this.tituloMusica = titulo;
+		this.codMusica = musicaSelecionada;
 		this.principal = principalGui;
 		
 		//Propriedades da janela principal
@@ -53,15 +56,24 @@ public class EditMusicaGui implements ActionListener{
 		frame.setLayout(null);
 		frame.setVisible(true);
 		frame.setResizable(false);
-		frame.setTitle("Editar");
-		
+		frame.setTitle("Edição");
+
+		frame.addWindowStateListener(new WindowStateListener() {
+            @Override
+            public void windowStateChanged(WindowEvent e) {
+                if ((e.getNewState() & Frame.ICONIFIED) == Frame.ICONIFIED) {
+                    frame.setState(Frame.NORMAL); // Evita minimização
+                }
+            }
+        });	
+        
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (screenSize.width - frame.getWidth()) / 2;
         int y = (screenSize.height - frame.getHeight()) / 2;
         frame.setLocation(x, y);
         
         Container contentPane = frame.getContentPane();
-        contentPane.setBackground(new Color(39,39,39));
+        contentPane.setBackground(new Color(43,43,43));
         
         labelEdicao.setBounds(21,30,300,25);
         labelEdicao.setForeground(Color.WHITE);
@@ -100,15 +112,15 @@ public class EditMusicaGui implements ActionListener{
         campoArtista.setFont(new Font("Arial", Font.BOLD, 12));  
         campoArtista.setBorder(emptyBorder);
         
-        botaoSalvar.setBounds(45,285,115,25);
-        botaoSalvar.setBackground(new Color(255, 96, 33));
+        botaoSalvar.setBounds(46,285,115,25);
+        botaoSalvar.setBackground(new Color(255, 130, 50)); 
         botaoSalvar.setForeground(Color.WHITE);
 		botaoSalvar.setFocusable(false);
 		botaoSalvar.addActionListener(this);
 		botaoSalvar.setFont(new Font("Arial", Font.BOLD, 12));
 		botaoSalvar.setFocusPainted(false);
 		
-		botaoCancelar.setBounds(165,285,115,25);
+		botaoCancelar.setBounds(166,285,115,25);
 		botaoCancelar.setBackground(new Color(25, 25, 25));
 		botaoCancelar.setForeground(Color.WHITE);
 		botaoCancelar.setFocusable(false);
@@ -125,7 +137,7 @@ public class EditMusicaGui implements ActionListener{
 
 		            @Override
 		            public void mouseExited(MouseEvent e) {
-		            	botaoSalvar.setBackground(new Color(255, 94, 0));
+		            	botaoSalvar.setBackground(new Color(255, 130, 50));
 		            }
 		        });
 				
@@ -159,7 +171,7 @@ public class EditMusicaGui implements ActionListener{
 		
 		if (e.getSource() == botaoSalvar) {
 			MusicaController mc = new MusicaController();
-			mc.editaMusica(tituloMusica, codUsuario, campoTitulo.getText(), campoAlbum.getText(), campoArtista.getText());
+			mc.editaMusica(codMusica, codUsuario, campoTitulo.getText(), campoAlbum.getText(), campoArtista.getText());
 			principal.atualizarTabelaPrincipal();
 			principal.tituloSelecionado = null;
 			principal.artistaSelecionado = null;

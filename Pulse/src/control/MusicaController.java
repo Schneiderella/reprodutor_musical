@@ -30,13 +30,13 @@ public class MusicaController {
 		return listaMusicas;
 	}
 
-	public boolean removeMusica(String titulo, int codigoUsuario) {
-		boolean removido = musicaDAO.removeMusica(titulo, codigoUsuario);
+	public boolean removeMusica(int codMusica, int codigoUsuario) {
+		boolean removido = musicaDAO.removeMusica(codMusica, codigoUsuario);
 		return removido;
 	}
 
-	public boolean editaMusica(String tituloMusica, int codUsuario, String tituloAlterado, String artistaAlterado, String albumAlterado) {
-		boolean editado = musicaDAO.editamusica(tituloMusica, codUsuario, tituloAlterado, artistaAlterado, albumAlterado);
+	public boolean editaMusica(int codMusica, int codUsuario, String tituloAlterado, String artistaAlterado, String albumAlterado) {
+		boolean editado = musicaDAO.editamusica(codMusica, codUsuario, tituloAlterado, artistaAlterado, albumAlterado);
 		return editado;
 	}
 	

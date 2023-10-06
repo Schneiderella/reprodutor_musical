@@ -62,7 +62,7 @@ public class LoginGui implements ActionListener{
         //Componentes
     	labelAviso.setFont(new Font(null, Font.ITALIC, 12));
         
-        labelImagem.setBounds(180,94,64,64);
+        labelImagem.setBounds(180,93,64,64);
         
         labelLogin.setBounds(112,157,75,25);
         labelLogin.setForeground(Color.WHITE);

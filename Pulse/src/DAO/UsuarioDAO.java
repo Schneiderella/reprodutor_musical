@@ -1,5 +1,7 @@
 package DAO;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,7 +21,9 @@ public class UsuarioDAO {
 			ps = Conexao.getConnection().prepareStatement(sql);
 			ps.setString(1, usuario.getNome());
 			ps.setString(2, usuario.getLogin());
-			ps.setString(3, usuario.getSenha());
+			
+			String senhaCriptografada = hashSenha(usuario.getSenha());
+	        ps.setString(3, senhaCriptografada);
 			
 			ps.execute();
 			
@@ -28,6 +32,7 @@ public class UsuarioDAO {
             }
 			
 		} catch (SQLException e) {
+			e.printStackTrace();
 			System.out.println("Falha na inserção de dados!");
 		}
 		
@@ -42,7 +47,9 @@ public class UsuarioDAO {
 	    try {
 	        ps = Conexao.getConnection().prepareStatement(sql);
 	        ps.setString(1, usuario);
-	        ps.setString(2, senha);
+	        
+	        String senhaCriptografada = hashSenha(senha);
+	        ps.setString(2, senhaCriptografada);
 	        
 	        rs = ps.executeQuery();
 	        
@@ -116,7 +123,8 @@ public class UsuarioDAO {
 	    try {
 	        ps = Conexao.getConnection().prepareStatement(sql);
 	        ps.setString(1, login);
-	        ps.setString(2, senha);
+	        String senhaCriptografada = hashSenha(senha);
+	        ps.setString(2, senhaCriptografada);
 
 	        rs = ps.executeQuery();
 
@@ -143,6 +151,25 @@ public class UsuarioDAO {
 	        }
 	    }
 	    return null;
+	}
+	
+	private String hashSenha(String senha) {
+	    try {
+	        MessageDigest md = MessageDigest.getInstance("SHA-256");
+	        byte[] senhaBytes = senha.getBytes();
+	        byte[] hashBytes = md.digest(senhaBytes);
+
+	        // Converta o hash em uma representação hexadecimal
+	        StringBuilder hexHash = new StringBuilder();
+	        for (byte b : hashBytes) {
+	            hexHash.append(String.format("%02x", b));
+	        }
+
+	        return hexHash.toString();
+	    } catch (NoSuchAlgorithmException e) {
+	        e.printStackTrace();
+	        return null;
+	    }
 	}
 	
 }
