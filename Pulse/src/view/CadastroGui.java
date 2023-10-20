@@ -38,28 +38,44 @@ public class CadastroGui implements ActionListener {
 	JLabel labelAviso = new JLabel();
 	JLabel labelMensagem = new JLabel("Vamos criar a sua conta!");
 	JLabel labelEntrar = new JLabel("Já possui uma conta?");
-	
+
 	@SuppressWarnings("serial")
-	public CadastroGui(){
-		
-		//Painel que faz o fade de cores
+	public CadastroGui() {
+
+		// Painel que faz o fade de cores
 		frame.setContentPane(new JPanel() {
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                Graphics2D g2d = (Graphics2D) g;
-                int width = getWidth();
-                int height = getHeight();
-                Color color1 = new Color(228, 44, 100);
-                Color color2 = new Color(97, 74, 211); 
-                GradientPaint gp = new GradientPaint(0, 0, color1, 0, height, color2);
-                g2d.setPaint(gp);
-                g2d.fillRect(0, 0, width, height);
-            }
-        });
-		
-		//Componentes
+			@Override
+			protected void paintComponent(Graphics g) {
+				super.paintComponent(g);
+				Graphics2D g2d = (Graphics2D) g;
+				int width = getWidth();
+				int height = getHeight();
+				Color color1 = new Color(228, 44, 100);
+				Color color2 = new Color(97, 74, 211);
+				GradientPaint gp = new GradientPaint(0, 0, color1, 0, height, color2);
+				g2d.setPaint(gp);
+				g2d.fillRect(0, 0, width, height);
+			}
+		});
+
+		// Componentes
 		labelAviso.setFont(new Font(null, Font.ITALIC, 12));
+<<<<<<< HEAD
+
+		labelNome.setBounds(115, 77, 75, 25);
+		labelNome.setForeground(Color.WHITE);
+		labelNome.setFont(new Font(null, Font.BOLD, 12));
+
+		labelLogin.setBounds(115, 127, 75, 25);
+		labelLogin.setForeground(Color.WHITE);
+		labelLogin.setFont(new Font(null, Font.BOLD, 12));
+
+		labelSenha.setBounds(115, 177, 75, 25);
+		labelSenha.setForeground(Color.WHITE);
+		labelSenha.setFont(new Font(null, Font.BOLD, 12));
+
+		labelSenha2.setBounds(115, 227, 125, 25);
+=======
 		
 		labelNome.setBounds(112,77,75,25);
 		labelNome.setForeground(Color.WHITE);
@@ -74,18 +90,33 @@ public class CadastroGui implements ActionListener {
 		labelSenha.setFont(new Font(null, Font.BOLD, 12));
 		
 		labelSenha2.setBounds(112,227,125,25);
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 		labelSenha2.setForeground(Color.WHITE);
 		labelSenha2.setFont(new Font(null, Font.BOLD, 12));
-		
-		labelMensagem.setBounds(95,35,300,35);
+
+		labelMensagem.setBounds(95, 35, 300, 35);
 		labelMensagem.setForeground(Color.WHITE);
 		labelMensagem.setFont(new Font("SansSerif", Font.BOLD, 20));
-		
-		labelEntrar.setBounds(132,345,150,25);
+
+		labelEntrar.setBounds(132, 345, 150, 25);
 		labelEntrar.setForeground(Color.WHITE);
 		labelEntrar.setFont(new Font(null, Font.BOLD, 12));
-		
+
 		campoNome.setBounds(114, 97, 200, 25);
+<<<<<<< HEAD
+		campoNome.setBorder(new LineBorder(Color.WHITE));
+		campoNome.setBackground(new Color(0, 0, 0, 0));
+		campoNome.setOpaque(false);
+		campoNome.setForeground(Color.WHITE);
+		campoNome.setFont(new Font("Arial", Font.PLAIN, 12));
+
+		campoLogin.setBounds(114, 147, 200, 25);
+		campoLogin.setBorder(new LineBorder(Color.WHITE));
+		campoLogin.setBackground(new Color(0, 0, 0, 0));
+		campoLogin.setOpaque(false);
+		campoLogin.setForeground(Color.WHITE);
+		campoLogin.setFont(new Font("Arial", Font.PLAIN, 12));
+=======
 		campoNome.setBorder(new LineBorder(Color.WHITE)); 
 		campoNome.setBackground(new Color(0, 0, 0, 0)); 
 		campoNome.setOpaque(false); 
@@ -98,65 +129,86 @@ public class CadastroGui implements ActionListener {
 		campoLogin.setOpaque(false); 
 		campoLogin.setForeground(Color.WHITE); 
 		campoLogin.setFont(new Font("Arial", Font.PLAIN, 12));  
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 
 		campoSenha.setBounds(114, 197, 200, 25);
-		campoSenha.setBorder(new LineBorder(Color.WHITE)); 
-		campoSenha.setBackground(new Color(0, 0, 0, 0)); 
+		campoSenha.setBorder(new LineBorder(Color.WHITE));
+		campoSenha.setBackground(new Color(0, 0, 0, 0));
 		campoSenha.setOpaque(false);
 		campoSenha.setForeground(Color.WHITE);
+<<<<<<< HEAD
+		campoSenha.setFont(new Font("Arial", Font.PLAIN, 12));
+=======
 		campoSenha.setFont(new Font("Arial", Font.PLAIN, 12));  
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 
 		campoSenha2.setBounds(114, 247, 200, 25);
-		campoSenha2.setBorder(new LineBorder(Color.WHITE)); 
-		campoSenha2.setBackground(new Color(0, 0, 0, 0)); 
+		campoSenha2.setBorder(new LineBorder(Color.WHITE));
+		campoSenha2.setBackground(new Color(0, 0, 0, 0));
 		campoSenha2.setOpaque(false);
 		campoSenha2.setForeground(Color.WHITE);
+<<<<<<< HEAD
+		campoSenha2.setFont(new Font("Arial", Font.PLAIN, 12));
+
+		botaoCadastro.setBounds(164, 297, 100, 25);
+=======
 		campoSenha2.setFont(new Font("Arial", Font.PLAIN, 12));  
 		
 		botaoCadastro.setBounds(164,297,100,25);
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 		botaoCadastro.setForeground(Color.WHITE);
 		botaoCadastro.setBorder(new LineBorder(Color.WHITE));
 		botaoCadastro.setFocusable(false);
 		botaoCadastro.addActionListener(this);
 		botaoCadastro.setContentAreaFilled(false);
+<<<<<<< HEAD
+		botaoCadastro.setFont(new Font("Arial", Font.BOLD, 12));
+=======
 		botaoCadastro.setFont(new Font("Arial", Font.BOLD, 12)); 
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 
-		botaoEntrar.setBounds(214,345,125,25);
+		botaoEntrar.setBounds(214, 345, 125, 25);
 		botaoEntrar.setForeground(Color.WHITE);
 		botaoEntrar.setFocusable(false);
 		botaoEntrar.setBorderPainted(false);
 		botaoEntrar.setContentAreaFilled(false);
 		botaoEntrar.addActionListener(this);
+<<<<<<< HEAD
+		botaoEntrar.setFont(new Font("Arial", Font.BOLD, 12));
+
+		//// Métodos que reajem com o passar do mouse
+=======
 		botaoEntrar.setFont(new Font("Arial", Font.BOLD, 12)); 
 		
 		////Métodos que reajem com o passar do mouse
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 		botaoCadastro.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent e) {
-            	botaoCadastro.setForeground(Color.LIGHT_GRAY); 
-            	botaoCadastro.setBorder(new LineBorder(Color.LIGHT_GRAY));
-            }
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				botaoCadastro.setForeground(Color.LIGHT_GRAY);
+				botaoCadastro.setBorder(new LineBorder(Color.LIGHT_GRAY));
+			}
 
-            @Override
-            public void mouseExited(MouseEvent e) {
-            	botaoCadastro.setForeground(Color.WHITE);
-            	botaoCadastro.setBorder(new LineBorder(Color.WHITE));
-            }
-        });
-		
+			@Override
+			public void mouseExited(MouseEvent e) {
+				botaoCadastro.setForeground(Color.WHITE);
+				botaoCadastro.setBorder(new LineBorder(Color.WHITE));
+			}
+		});
+
 		botaoEntrar.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent e) {
-            	botaoEntrar.setForeground(Color.LIGHT_GRAY); 
-            }
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				botaoEntrar.setForeground(Color.LIGHT_GRAY);
+			}
 
-            @Override
-            public void mouseExited(MouseEvent e) {
-            	botaoEntrar.setForeground(Color.WHITE);
-            }
-        });
-		
-		 //Adicionando os componentes
+			@Override
+			public void mouseExited(MouseEvent e) {
+				botaoEntrar.setForeground(Color.WHITE);
+			}
+		});
+
+		// Adicionando os componentes
 		frame.add(labelNome);
 		frame.add(labelLogin);
 		frame.add(labelSenha);
@@ -170,72 +222,70 @@ public class CadastroGui implements ActionListener {
 		frame.add(campoSenha2);
 		frame.add(botaoCadastro);
 		frame.add(botaoEntrar);
-		
-		//Propriedades da janela principal
+
+		// Propriedades da janela principal
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(440,440);
+		frame.setSize(440, 440);
 		frame.setLayout(null);
 		frame.setVisible(true);
 		frame.setResizable(false);
 		frame.setTitle("Cadastro");
-		
-		 Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-	     int x = (screenSize.width - frame.getWidth()) / 2;
-	     int y = (screenSize.height - frame.getHeight()) / 2;
-	     frame.setLocation(x, y);
-		
+
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		int x = (screenSize.width - frame.getWidth()) / 2;
+		int y = (screenSize.height - frame.getHeight()) / 2;
+		frame.setLocation(x, y);
+
 	}
 
-	//Ações
+	// Ações
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
-		if(e.getSource()==botaoCadastro) {
-			String nome = campoNome.getText();	
+
+		if (e.getSource() == botaoCadastro) {
+			String nome = campoNome.getText();
 			String login = campoLogin.getText();
 			String senha = String.valueOf(campoSenha.getPassword());
 			String senha2 = String.valueOf(campoSenha2.getPassword());
-		
-	    if (nome.isEmpty() || login.isEmpty() || senha.isEmpty() || senha2.isEmpty()) {
-	    	labelAviso.setBounds(165,272,250,15);
-	        labelAviso.setForeground(Color.WHITE);
-	        labelAviso.setText("Preencha todos os campos!");
-	        return;
-	    }
-		
-		UsuarioController usuarioController = new UsuarioController();
-		
-		boolean loginValido = usuarioController.validaLogin(login);
-		if (loginValido==false){
-			labelAviso.setBounds(211,272,250,15);
-			labelAviso.setForeground(Color.WHITE);
-			labelAviso.setText("Este login já existe!");
-			return;
-		}
-			else {
-				boolean senhaValida = usuarioController.validaSenha(senha,senha2);
-				if (senhaValida==false) {
-					labelAviso.setBounds(174,272,250,15);
+
+			if (nome.isEmpty() || login.isEmpty() || senha.isEmpty() || senha2.isEmpty()) {
+				labelAviso.setBounds(165, 272, 250, 15);
+				labelAviso.setForeground(Color.WHITE);
+				labelAviso.setText("Preencha todos os campos!");
+				return;
+			}
+
+			UsuarioController usuarioController = new UsuarioController();
+
+			boolean loginValido = usuarioController.validaLogin(login);
+			if (loginValido == false) {
+				labelAviso.setBounds(211, 272, 250, 15);
+				labelAviso.setForeground(Color.WHITE);
+				labelAviso.setText("Este login já existe!");
+				return;
+			} else {
+				boolean senhaValida = usuarioController.validaSenha(senha, senha2);
+				if (senhaValida == false) {
+					labelAviso.setBounds(174, 272, 250, 15);
 					labelAviso.setForeground(Color.WHITE);
 					labelAviso.setText("As senhas não coincidem!");
 					return;
-				}
-				else {
-					usuarioController.cadastraUsuario(nome,login,senha);
+				} else {
+					usuarioController.cadastraUsuario(nome, login, senha);
 					frame.dispose();
 					LoginGui loginPage = new LoginGui();
-					loginPage.labelAviso.setBounds(124,252,250,15);
+					loginPage.labelAviso.setBounds(124, 252, 250, 15);
 					loginPage.labelAviso.setForeground(Color.WHITE);
 					loginPage.labelAviso.setText("Usuário cadastrado com sucesso!");
 				}
 			}
-		}	
-		
-		if(e.getSource()==botaoEntrar) {
+		}
+
+		if (e.getSource() == botaoEntrar) {
 			frame.dispose();
 			new LoginGui();
 		}
-		
+
 	}
-	
+
 }
