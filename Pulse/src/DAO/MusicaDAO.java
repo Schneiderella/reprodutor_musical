@@ -12,8 +12,13 @@ import model.Musica;
 public class MusicaDAO {
 
 	public static List<Musica> retornaMusicas(int codigoUsuario) {
+<<<<<<< HEAD
 		List<Musica> listaMusicas = new ArrayList<>();
 		String sql = "SELECT IDMUSICA, TITULO, ENDERECO, ARTISTA, ALBUM, DURACAO FROM MUSICA WHERE CODIGOUSUARIO = ?";
+=======
+	    List<Musica> listaMusicas = new ArrayList<>();
+	    String sql = "SELECT IDMUSICA, TITULO, ENDERECO, ARTISTA, ALBUM, DURACAO FROM MUSICA WHERE CODIGOUSUARIO = ?";
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -23,6 +28,7 @@ public class MusicaDAO {
 			ps.setInt(1, codigoUsuario); // Configura o código do usuário na consulta
 			rs = ps.executeQuery();
 
+<<<<<<< HEAD
 			while (rs.next()) {
 				int codMusica = rs.getInt("IDMUSICA");
 				String titulo = rs.getString("TITULO");
@@ -38,6 +44,23 @@ public class MusicaDAO {
 				musica.setDuracao(duracao);
 				musica.setArtista(artista);
 				musica.setAlbum(album);
+=======
+	        while (rs.next()) {
+	        	int codMusica = rs.getInt("IDMUSICA");
+	            String titulo = rs.getString("TITULO");
+	            String endereco = rs.getString("ENDERECO");
+	            String duracao = rs.getString("DURACAO");
+	            String artista = rs.getString("ARTISTA");
+	            String album = rs.getString("ALBUM");
+
+	            Musica musica = new Musica();
+	            musica.setCodigo(codMusica);
+	            musica.setTitulo(titulo);
+	            musica.setEndereco(endereco);
+	            musica.setDuracao(duracao);
+	            musica.setArtista(artista);
+	            musica.setAlbum(album);
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 
 				listaMusicas.add(musica);
 			}
@@ -58,10 +81,18 @@ public class MusicaDAO {
 		return listaMusicas;
 	}
 
+<<<<<<< HEAD
 	public static List<Musica> retornaMusicasFiltradas(int codigoUsuario, String textoBusca) {
 		List<Musica> listaMusicas = new ArrayList<>();
 		String sql = "SELECT IDMUSICA, TITULO, ENDERECO, ARTISTA, ALBUM, DURACAO FROM MUSICA WHERE CODIGOUSUARIO = ? AND TITULO LIKE ?";
 
+=======
+	
+	public void cadastraMusica (Musica musica) {
+		
+		String sql = "INSERT INTO MUSICA (TITULO, ENDERECO, ARTISTA, ALBUM, DURACAO, CODIGOUSUARIO) VALUES (?, ?, ?, ?, ?, ?)"; 
+		
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 
@@ -120,7 +151,11 @@ public class MusicaDAO {
 			ps.setString(4, musica.getAlbum());
 			ps.setString(5, musica.getDuracao());
 			ps.setInt(6, musica.getCodigoUsuario());
+<<<<<<< HEAD
 
+=======
+			
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 			ps.execute();
 
 			if (ps != null) {
@@ -166,6 +201,7 @@ public class MusicaDAO {
 	}
 
 	public boolean removeMusica(int musicaSelecionada, int codigoUsuario) {
+<<<<<<< HEAD
 		String sql = "DELETE FROM MUSICA WHERE IDMUSICA = ? AND CODIGOUSUARIO = ?";
 		PreparedStatement ps = null;
 
@@ -173,6 +209,15 @@ public class MusicaDAO {
 			ps = Conexao.getConnection().prepareStatement(sql);
 			ps.setInt(1, musicaSelecionada);
 			ps.setInt(2, codigoUsuario);
+=======
+        String sql = "DELETE FROM MUSICA WHERE IDMUSICA = ? AND CODIGOUSUARIO = ?";
+        PreparedStatement ps = null;
+
+        try {
+        	ps = Conexao.getConnection().prepareStatement(sql);
+            ps.setInt(1, musicaSelecionada);
+            ps.setInt(2, codigoUsuario);
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 
 			int rowsAffected = ps.executeUpdate();
 
@@ -257,6 +302,39 @@ public class MusicaDAO {
 			}
 		}
 		return false;
+	}
+
+
+	public boolean editamusica(int codMusica, int codUsuario, String tituloAlterado, String artistaAlterado, String albumAlterado) {
+		String sql = "UPDATE MUSICA SET TITULO = ?, ARTISTA = ?, ALBUM = ? WHERE IDMUSICA = ? AND CODIGOUSUARIO = ?";
+	    PreparedStatement ps = null;
+
+	    try {
+	        ps = Conexao.getConnection().prepareStatement(sql);
+	        ps.setString(1, tituloAlterado);
+	        ps.setString(2, artistaAlterado);
+	        ps.setString(3, albumAlterado);
+	        ps.setInt(4, codMusica);
+	        ps.setInt(5, codUsuario);
+
+	        int rowsAffected = ps.executeUpdate();
+
+	        if (rowsAffected > 0) {
+	            return true; 
+	        }
+	    } catch (SQLException e) {
+	        System.out.println("Falha ao atualizar a música!");
+	        e.printStackTrace();
+	    } finally {
+	        try {
+	            if (ps != null) {
+	                ps.close();
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	    }
+	    return false;
 	}
 
 }

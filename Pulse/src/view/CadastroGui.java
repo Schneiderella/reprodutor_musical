@@ -60,6 +60,7 @@ public class CadastroGui implements ActionListener {
 
 		// Componentes
 		labelAviso.setFont(new Font(null, Font.ITALIC, 12));
+<<<<<<< HEAD
 
 		labelNome.setBounds(115, 77, 75, 25);
 		labelNome.setForeground(Color.WHITE);
@@ -74,6 +75,22 @@ public class CadastroGui implements ActionListener {
 		labelSenha.setFont(new Font(null, Font.BOLD, 12));
 
 		labelSenha2.setBounds(115, 227, 125, 25);
+=======
+		
+		labelNome.setBounds(112,77,75,25);
+		labelNome.setForeground(Color.WHITE);
+		labelNome.setFont(new Font(null, Font.BOLD, 12));
+		
+		labelLogin.setBounds(112,127,75,25);
+		labelLogin.setForeground(Color.WHITE);
+		labelLogin.setFont(new Font(null, Font.BOLD, 12));
+		
+		labelSenha.setBounds(112,177,75,25);
+		labelSenha.setForeground(Color.WHITE);
+		labelSenha.setFont(new Font(null, Font.BOLD, 12));
+		
+		labelSenha2.setBounds(112,227,125,25);
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 		labelSenha2.setForeground(Color.WHITE);
 		labelSenha2.setFont(new Font(null, Font.BOLD, 12));
 
@@ -86,6 +103,7 @@ public class CadastroGui implements ActionListener {
 		labelEntrar.setFont(new Font(null, Font.BOLD, 12));
 
 		campoNome.setBounds(114, 97, 200, 25);
+<<<<<<< HEAD
 		campoNome.setBorder(new LineBorder(Color.WHITE));
 		campoNome.setBackground(new Color(0, 0, 0, 0));
 		campoNome.setOpaque(false);
@@ -98,28 +116,56 @@ public class CadastroGui implements ActionListener {
 		campoLogin.setOpaque(false);
 		campoLogin.setForeground(Color.WHITE);
 		campoLogin.setFont(new Font("Arial", Font.PLAIN, 12));
+=======
+		campoNome.setBorder(new LineBorder(Color.WHITE)); 
+		campoNome.setBackground(new Color(0, 0, 0, 0)); 
+		campoNome.setOpaque(false); 
+		campoNome.setForeground(Color.WHITE); 
+		campoNome.setFont(new Font("Arial", Font.PLAIN, 12));  
+
+		campoLogin.setBounds(114, 147, 200, 25);
+		campoLogin.setBorder(new LineBorder(Color.WHITE)); 
+		campoLogin.setBackground(new Color(0, 0, 0, 0)); 
+		campoLogin.setOpaque(false); 
+		campoLogin.setForeground(Color.WHITE); 
+		campoLogin.setFont(new Font("Arial", Font.PLAIN, 12));  
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 
 		campoSenha.setBounds(114, 197, 200, 25);
 		campoSenha.setBorder(new LineBorder(Color.WHITE));
 		campoSenha.setBackground(new Color(0, 0, 0, 0));
 		campoSenha.setOpaque(false);
 		campoSenha.setForeground(Color.WHITE);
+<<<<<<< HEAD
 		campoSenha.setFont(new Font("Arial", Font.PLAIN, 12));
+=======
+		campoSenha.setFont(new Font("Arial", Font.PLAIN, 12));  
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 
 		campoSenha2.setBounds(114, 247, 200, 25);
 		campoSenha2.setBorder(new LineBorder(Color.WHITE));
 		campoSenha2.setBackground(new Color(0, 0, 0, 0));
 		campoSenha2.setOpaque(false);
 		campoSenha2.setForeground(Color.WHITE);
+<<<<<<< HEAD
 		campoSenha2.setFont(new Font("Arial", Font.PLAIN, 12));
 
 		botaoCadastro.setBounds(164, 297, 100, 25);
+=======
+		campoSenha2.setFont(new Font("Arial", Font.PLAIN, 12));  
+		
+		botaoCadastro.setBounds(164,297,100,25);
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 		botaoCadastro.setForeground(Color.WHITE);
 		botaoCadastro.setBorder(new LineBorder(Color.WHITE));
 		botaoCadastro.setFocusable(false);
 		botaoCadastro.addActionListener(this);
 		botaoCadastro.setContentAreaFilled(false);
+<<<<<<< HEAD
 		botaoCadastro.setFont(new Font("Arial", Font.BOLD, 12));
+=======
+		botaoCadastro.setFont(new Font("Arial", Font.BOLD, 12)); 
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 
 		botaoEntrar.setBounds(214, 345, 125, 25);
 		botaoEntrar.setForeground(Color.WHITE);
@@ -127,9 +173,15 @@ public class CadastroGui implements ActionListener {
 		botaoEntrar.setBorderPainted(false);
 		botaoEntrar.setContentAreaFilled(false);
 		botaoEntrar.addActionListener(this);
+<<<<<<< HEAD
 		botaoEntrar.setFont(new Font("Arial", Font.BOLD, 12));
 
 		//// Métodos que reajem com o passar do mouse
+=======
+		botaoEntrar.setFont(new Font("Arial", Font.BOLD, 12)); 
+		
+		////Métodos que reajem com o passar do mouse
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 		botaoCadastro.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {

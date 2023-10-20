@@ -36,6 +36,7 @@ public class LoginGui implements ActionListener {
 	JLabel labelAviso = new JLabel();
 	JLabel labelMensagem = new JLabel("Bem-vindo ao Pulse!");
 	JLabel labelCadastro = new JLabel("Não possui uma conta?");
+<<<<<<< HEAD
 	ImageIcon imagem = new ImageIcon("auxiliar/icone_login.png");
 	JLabel labelImagem = new JLabel(imagem);
 
@@ -94,22 +95,94 @@ public class LoginGui implements ActionListener {
 		campoSenha.setFont(new Font("Arial", Font.PLAIN, 12));
 
 		botaoLogin.setBounds(164, 277, 100, 25);
+=======
+    ImageIcon imagem = new ImageIcon("auxiliar/icone_login.png");
+    JLabel labelImagem = new JLabel(imagem);
+	
+	@SuppressWarnings("serial")
+	public LoginGui(){
+		
+		//Painel que faz o fade de cores
+        frame.setContentPane(new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                Graphics2D g2d = (Graphics2D) g;
+                int width = getWidth();
+                int height = getHeight();
+                Color color1 = new Color(228, 44, 100);
+                Color color2 = new Color(97, 74, 211);
+                GradientPaint gp = new GradientPaint(0, 0, color1, 0, height, color2);
+                g2d.setPaint(gp);
+                g2d.fillRect(0, 0, width, height);
+            }
+        });
+        
+        
+        //Componentes
+    	labelAviso.setFont(new Font(null, Font.ITALIC, 12));
+        
+        labelImagem.setBounds(180,93,64,64);
+        
+        labelLogin.setBounds(112,157,75,25);
+        labelLogin.setForeground(Color.WHITE);
+        labelLogin.setFont(new Font(null,Font.BOLD,12));
+        
+        labelSenha.setBounds(112,207,75,25);
+        labelSenha.setForeground(Color.WHITE);
+        labelSenha.setFont(new Font(null,Font.BOLD,12));
+        
+        labelMensagem.setBounds(115,44,300,35);
+        labelMensagem.setForeground(Color.WHITE);
+        labelMensagem.setFont(new Font("SansSerif", Font.BOLD, 20));
+        
+        labelCadastro.setBounds(109,327,150,25);
+        labelCadastro.setForeground(Color.WHITE);
+        labelCadastro.setFont(new Font(null,Font.BOLD,12));
+		
+		campoLogin.setBounds(114, 177, 200, 25);
+        campoLogin.setBorder(new LineBorder(Color.WHITE));
+        campoLogin.setBackground(new Color(0, 0, 0, 0)); 
+        campoLogin.setOpaque(false);
+        campoLogin.setForeground(Color.WHITE);
+        campoLogin.setFont(new Font("Arial", Font.PLAIN, 12));  
+
+        campoSenha.setBounds(114, 227, 200, 25);
+        campoSenha.setBorder(new LineBorder(Color.WHITE));
+        campoSenha.setBackground(new Color(0, 0, 0, 0));
+        campoSenha.setOpaque(false);
+        campoSenha.setForeground(Color.WHITE);
+        campoSenha.setFont(new Font("Arial", Font.PLAIN, 12));  
+        
+		botaoLogin.setBounds(164,277,100,25);
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 		botaoLogin.setForeground(Color.WHITE);
 		botaoLogin.setBorder(new LineBorder(Color.WHITE));
 		botaoLogin.setFocusable(false);
 		botaoLogin.addActionListener(this);
 		botaoLogin.setContentAreaFilled(false);
+<<<<<<< HEAD
 		botaoLogin.setFont(new Font("Arial", Font.BOLD, 12));
 
+=======
+		botaoLogin.setFont(new Font("Arial", Font.BOLD, 12));  
+		
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 		botaoCadastro.setBounds(219, 327, 125, 25);
 		botaoCadastro.setForeground(Color.WHITE);
 		botaoCadastro.setFocusable(false);
 		botaoCadastro.setBorderPainted(false);
 		botaoCadastro.setContentAreaFilled(false);
 		botaoCadastro.addActionListener(this);
+<<<<<<< HEAD
 		botaoCadastro.setFont(new Font("Arial", Font.BOLD, 12));
 
 		// Métodos que reajem com o passar do mouse
+=======
+		botaoCadastro.setFont(new Font("Arial", Font.BOLD, 12));  
+		
+		//Métodos que reajem com o passar do mouse
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 		botaoLogin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {

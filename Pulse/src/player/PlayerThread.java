@@ -1,5 +1,7 @@
 package player;
 
+import javax.swing.JOptionPane;
+
 import javazoom.jl.player.Player;
 
 public class PlayerThread extends Thread {

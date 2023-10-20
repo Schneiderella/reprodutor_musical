@@ -9,7 +9,10 @@ public class Musica {
 	private String endereco;
 	private String duracao;
 	private int codigoUsuario;
+<<<<<<< HEAD
 
+=======
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 	public int getCodigo() {
 		return codigo;
 	}
@@ -25,6 +28,7 @@ public class Musica {
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
+<<<<<<< HEAD
 
 	public String getArtista() {
 		return artista;
@@ -38,6 +42,17 @@ public class Musica {
 		return album;
 	}
 
+=======
+	public String getArtista() {
+		return artista;
+	}
+	public void setArtista(String artista) {
+		this.artista = artista;
+	}
+	public String getAlbum() {
+		return album;
+	}
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 	public void setAlbum(String album) {
 		this.album = album;
 	}
@@ -49,11 +64,17 @@ public class Musica {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
+<<<<<<< HEAD
 
 	public String getDuracao() {
 		return duracao;
 	}
 
+=======
+	public String getDuracao() {
+		return duracao;
+	}
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 	public void setDuracao(String duracao2) {
 		this.duracao = duracao2;
 	}
@@ -66,3 +87,4 @@ public class Musica {
 		this.codigoUsuario = codigoUsuario;
 	}
 }
+	

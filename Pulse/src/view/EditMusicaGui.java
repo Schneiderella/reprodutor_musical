@@ -22,10 +22,17 @@ import javax.swing.border.EmptyBorder;
 import control.MusicaController;
 import model.Usuario;
 
+<<<<<<< HEAD
 public class EditMusicaGui implements ActionListener {
 
 	JFrame frame = new JFrame();
 
+=======
+public class EditMusicaGui implements ActionListener{
+
+	JFrame frame = new JFrame();
+	
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 	JTextField campoTitulo = new JTextField();
 	JTextField campoArtista = new JTextField();
 	JTextField campoAlbum = new JTextField();
@@ -34,6 +41,7 @@ public class EditMusicaGui implements ActionListener {
 	JLabel labelTitulo = new JLabel("Título");
 	JLabel labelArtista = new JLabel("Artista");
 	JLabel labelAlbum = new JLabel("Álbum");
+<<<<<<< HEAD
 
 	JButton botaoSalvar = new JButton("Salvar");
 	JButton botaoCancelar = new JButton("Cancelar");
@@ -53,12 +61,34 @@ public class EditMusicaGui implements ActionListener {
 
 		// Propriedades da janela principal
 		frame.setSize(340, 390);
+=======
+	
+	JButton botaoSalvar = new JButton("Salvar");
+	JButton botaoCancelar = new JButton("Cancelar");
+	
+	EmptyBorder emptyBorder = new EmptyBorder(0, 10, 0, 0);
+	
+	int codUsuario;
+	int codMusica;
+	
+	private PrincipalGui principal;
+	
+	public EditMusicaGui(int musicaSelecionada, int codigoUsuario, Usuario usuario, PrincipalGui principalGui){
+		
+		this.codUsuario = codigoUsuario;
+		this.codMusica = musicaSelecionada;
+		this.principal = principalGui;
+		
+		//Propriedades da janela principal
+		frame.setSize(340,390);
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 		frame.setLayout(null);
 		frame.setVisible(true);
 		frame.setResizable(false);
 		frame.setTitle("Edição");
 
 		frame.addWindowStateListener(new WindowStateListener() {
+<<<<<<< HEAD
 			@Override
 			public void windowStateChanged(WindowEvent e) {
 				if ((e.getNewState() & Frame.ICONIFIED) == Frame.ICONIFIED) {
@@ -115,18 +145,82 @@ public class EditMusicaGui implements ActionListener {
 		botaoSalvar.setBounds(46, 285, 115, 25);
 		botaoSalvar.setBackground(new Color(255, 130, 50));
 		botaoSalvar.setForeground(Color.WHITE);
+=======
+            @Override
+            public void windowStateChanged(WindowEvent e) {
+                if ((e.getNewState() & Frame.ICONIFIED) == Frame.ICONIFIED) {
+                    frame.setState(Frame.NORMAL); // Evita minimização
+                }
+            }
+        });	
+        
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (screenSize.width - frame.getWidth()) / 2;
+        int y = (screenSize.height - frame.getHeight()) / 2;
+        frame.setLocation(x, y);
+        
+        Container contentPane = frame.getContentPane();
+        contentPane.setBackground(new Color(43,43,43));
+        
+        labelEdicao.setBounds(21,30,300,25);
+        labelEdicao.setForeground(Color.WHITE);
+        labelEdicao.setFont(new Font("Arial",Font.BOLD,20));
+        
+        labelTitulo.setBounds(40,65,75,25);
+        labelTitulo.setForeground(Color.LIGHT_GRAY);
+        labelTitulo.setFont(new Font(null,Font.BOLD,13));
+        
+        labelArtista.setBounds(40,135,75,25);
+        labelArtista.setForeground(Color.LIGHT_GRAY);
+        labelArtista.setFont(new Font(null,Font.BOLD,13));
+        
+        labelAlbum.setBounds(40,205,75,25);
+        labelAlbum.setForeground(Color.LIGHT_GRAY);
+        labelAlbum.setFont(new Font(null,Font.BOLD,13));  
+        
+        campoTitulo.setBounds(40, 90, 245, 25);
+        campoTitulo.setBorder(null);
+        campoTitulo.setBackground(new Color(60, 60, 60));
+        campoTitulo.setForeground(Color.WHITE);
+        campoTitulo.setFont(new Font("Arial", Font.BOLD, 12));  
+        campoTitulo.setBorder(emptyBorder);
+        
+        campoAlbum.setBounds(40, 230, 245, 25);
+        campoAlbum.setBorder(null);
+        campoAlbum.setBackground(new Color(60, 60, 60));
+        campoAlbum.setForeground(Color.WHITE);
+        campoAlbum.setFont(new Font("Arial", Font.BOLD, 12));  
+        campoAlbum.setBorder(emptyBorder);
+        
+        campoArtista.setBounds(40, 160, 245, 25);
+        campoArtista.setBorder(null);
+        campoArtista.setBackground(new Color(60, 60, 60));
+        campoArtista.setForeground(Color.WHITE);
+        campoArtista.setFont(new Font("Arial", Font.BOLD, 12));  
+        campoArtista.setBorder(emptyBorder);
+        
+        botaoSalvar.setBounds(46,285,115,25);
+        botaoSalvar.setBackground(new Color(255, 130, 50)); 
+        botaoSalvar.setForeground(Color.WHITE);
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 		botaoSalvar.setFocusable(false);
 		botaoSalvar.addActionListener(this);
 		botaoSalvar.setFont(new Font("Arial", Font.BOLD, 12));
 		botaoSalvar.setFocusPainted(false);
+<<<<<<< HEAD
 
 		botaoCancelar.setBounds(166, 285, 115, 25);
+=======
+		
+		botaoCancelar.setBounds(166,285,115,25);
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 		botaoCancelar.setBackground(new Color(25, 25, 25));
 		botaoCancelar.setForeground(Color.WHITE);
 		botaoCancelar.setFocusable(false);
 		botaoCancelar.addActionListener(this);
 		botaoCancelar.setFont(new Font("Arial", Font.BOLD, 12));
 		botaoCancelar.setFocusPainted(false);
+<<<<<<< HEAD
 
 		// Métodos que reajem com o passar do mouse
 		botaoSalvar.addMouseListener(new MouseAdapter() {
@@ -172,16 +266,71 @@ public class EditMusicaGui implements ActionListener {
 		if (e.getSource() == botaoSalvar) {
 			MusicaController mc = new MusicaController();
 			mc.editaMusica(codMusica, codUsuario, campoTitulo.getText(), campoArtista.getText(), campoAlbum.getText());
+=======
+		
+		//Métodos que reajem com o passar do mouse
+				botaoSalvar.addMouseListener(new MouseAdapter() {
+		            @Override
+		            public void mouseEntered(MouseEvent e) {
+		            	botaoSalvar.setBackground(new Color(250, 140, 72));
+		            }
+
+		            @Override
+		            public void mouseExited(MouseEvent e) {
+		            	botaoSalvar.setBackground(new Color(255, 130, 50));
+		            }
+		        });
+				
+				botaoCancelar.addMouseListener(new MouseAdapter() {
+		            @Override
+		            public void mouseEntered(MouseEvent e) {
+		            	botaoCancelar.setBackground(new Color(62, 62, 62));
+		            }
+
+		            @Override
+		            public void mouseExited(MouseEvent e) {
+		            	botaoCancelar.setBackground(new Color(58, 58, 58));
+		            }
+		        });
+			
+        frame.add(labelEdicao);
+        frame.add(labelTitulo);
+        frame.add(labelArtista);
+        frame.add(labelAlbum);
+        frame.add(campoAlbum);
+        frame.add(campoArtista);
+        frame.add(campoTitulo);
+        frame.add(botaoSalvar);
+        frame.add(botaoCancelar);
+    
+	}
+
+	//Ações
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		if (e.getSource() == botaoSalvar) {
+			MusicaController mc = new MusicaController();
+			mc.editaMusica(codMusica, codUsuario, campoTitulo.getText(), campoAlbum.getText(), campoArtista.getText());
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 			principal.atualizarTabelaPrincipal();
 			principal.tituloSelecionado = null;
 			principal.artistaSelecionado = null;
 			principal.albumSelecionado = null;
 			frame.dispose();
 		}
+<<<<<<< HEAD
 
 		if (e.getSource() == botaoCancelar) {
 			frame.dispose();
 		}
 
+=======
+		
+		if (e.getSource() == botaoCancelar) {
+			frame.dispose();
+		}
+	
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 	}
 }

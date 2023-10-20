@@ -21,10 +21,17 @@ public class UsuarioDAO {
 			ps = Conexao.getConnection().prepareStatement(sql);
 			ps.setString(1, usuario.getNome());
 			ps.setString(2, usuario.getLogin());
+<<<<<<< HEAD
 
 			String senhaCriptografada = hashSenha(usuario.getSenha());
 			ps.setString(3, senhaCriptografada);
 
+=======
+			
+			String senhaCriptografada = hashSenha(usuario.getSenha());
+	        ps.setString(3, senhaCriptografada);
+			
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 			ps.execute();
 
 			if (ps != null) {
@@ -39,6 +46,7 @@ public class UsuarioDAO {
 	}
 
 	public int validaUsuario(String usuario, String senha) {
+<<<<<<< HEAD
 
 		String sql = "SELECT COUNT(*) FROM USUARIO WHERE LOGIN = ? AND SENHA = ?";
 		PreparedStatement ps = null;
@@ -76,6 +84,45 @@ public class UsuarioDAO {
 			}
 		}
 		return -1;
+=======
+		
+	    String sql = "SELECT COUNT(*) FROM USUARIO WHERE LOGIN = ? AND SENHA = ?";
+	    PreparedStatement ps = null;
+	    ResultSet rs = null;
+	    
+	    try {
+	        ps = Conexao.getConnection().prepareStatement(sql);
+	        ps.setString(1, usuario);
+	        
+	        String senhaCriptografada = hashSenha(senha);
+	        ps.setString(2, senhaCriptografada);
+	        
+	        rs = ps.executeQuery();
+	        
+	        if (rs.next()) {
+	            int count = rs.getInt(1);
+	            if (count > 0) {
+	                return 1;
+	            } else {
+	                return 0;
+	            }
+	        }
+	    } catch (SQLException e) {
+	        System.out.println("Falha na consulta de dados!");
+	    } finally {	
+	        try {
+	            if (rs != null) {
+	                rs.close();
+	            }
+	            if (ps != null) {
+	                ps.close();
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	    }
+	    return -1;
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 	}
 
 	public boolean validaLogin(String login) {
@@ -120,11 +167,19 @@ public class UsuarioDAO {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 
+<<<<<<< HEAD
 		try {
 			ps = Conexao.getConnection().prepareStatement(sql);
 			ps.setString(1, login);
 			String senhaCriptografada = hashSenha(senha);
 			ps.setString(2, senhaCriptografada);
+=======
+	    try {
+	        ps = Conexao.getConnection().prepareStatement(sql);
+	        ps.setString(1, login);
+	        String senhaCriptografada = hashSenha(senha);
+	        ps.setString(2, senhaCriptografada);
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 
 			rs = ps.executeQuery();
 
@@ -152,6 +207,7 @@ public class UsuarioDAO {
 		}
 		return null;
 	}
+<<<<<<< HEAD
 
 	private String hashSenha(String senha) {
 		try {
@@ -172,4 +228,26 @@ public class UsuarioDAO {
 		}
 	}
 
+=======
+	
+	private String hashSenha(String senha) {
+	    try {
+	        MessageDigest md = MessageDigest.getInstance("SHA-256");
+	        byte[] senhaBytes = senha.getBytes();
+	        byte[] hashBytes = md.digest(senhaBytes);
+
+	        // Converta o hash em uma representação hexadecimal
+	        StringBuilder hexHash = new StringBuilder();
+	        for (byte b : hashBytes) {
+	            hexHash.append(String.format("%02x", b));
+	        }
+
+	        return hexHash.toString();
+	    } catch (NoSuchAlgorithmException e) {
+	        e.printStackTrace();
+	        return null;
+	    }
+	}
+	
+>>>>>>> f480da5e794f508c3d868441c7c0b1428c1fd5fe
 }
