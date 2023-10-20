@@ -11,7 +11,7 @@ import model.Musica;
 public class MusicasTableModel extends AbstractTableModel {
 
 	private List<Musica> musicas;
-	private static final String nomes[] = { "Título", "Artista", "Álbum", "Duração" };
+	private static final String nomes[] = { "Título", "Artista", "Álbum", "Duração", "Código", "Endereço" };
 
 	public MusicasTableModel() {
 		this.musicas = new ArrayList<Musica>();
@@ -53,17 +53,23 @@ public class MusicasTableModel extends AbstractTableModel {
 
 		Musica msc = musicas.get(rowIndex);
 
+		columnIndex++;
+
 		switch (columnIndex) {
-		case 0:
-			return msc.getTitulo();
 		case 1:
-			return msc.getArtista();
+			return msc.getTitulo();
 		case 2:
-			return msc.getAlbum();
+			return msc.getArtista();
 		case 3:
+			return msc.getAlbum();
+		case 4:
 			return msc.getDuracao();
+		case 5:
+			return msc.getCodigo();
+		case 6:
+			return msc.getEndereco();
 		}
 		return null;
 	}
-	
+
 }
